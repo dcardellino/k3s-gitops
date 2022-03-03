@@ -23,6 +23,8 @@ spec:
     ingress:
       main:
         enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-production
         ingressClassName: nginx
         hosts:
           - host: uptime.internal.domrocco.de
