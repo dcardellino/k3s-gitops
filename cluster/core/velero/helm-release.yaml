@@ -42,6 +42,6 @@ spec:
         provider: aws
       logLevel: debug
       defaultVolumesToRestic: true
-   credentials:
-     existingSecret: velero-s3-credentials
-      deployRestic: true
+    credentials:
+      existingSecret: velero-s3-credentials
+    deployRestic: true
