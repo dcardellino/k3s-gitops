@@ -32,7 +32,7 @@ spec:
       backupStorageLocation:
         name: b2-us-west-002
         provider: aws
-        bucketName: dca-k3s-velero-backup
+        bucket: dca-k3s-velero-backup
         default: true
         config:
           region: us-west-002
