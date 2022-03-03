@@ -5,3 +5,4 @@ resources:
   - namespaces
   - cert-manager
   - external-dns
+  - metallb
