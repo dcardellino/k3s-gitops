@@ -7,5 +7,6 @@ resources:
   - cloudflared
   - external-dns
   - metallb
+  - nfs-subdir-external-provisioner
   - ingress-nginx
   - velero
