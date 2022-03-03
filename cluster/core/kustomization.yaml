@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - namespaces
   - cert-manager
+  - cloudflared
   - external-dns
   - metallb
   - ingress-nginx
