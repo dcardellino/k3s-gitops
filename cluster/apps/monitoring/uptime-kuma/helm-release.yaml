@@ -12,7 +12,7 @@ spec:
       chart: uptime-kuma
       version: 1.1.0
       sourceRef:
-        kind: HelmRpository
+        kind: HelmRepository
         name: k8s-at-home-charts
         namespace: flux-system
   values:
