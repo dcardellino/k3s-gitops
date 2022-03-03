@@ -5,4 +5,5 @@ resources:
   - cert-manager.yaml
   - external-dns.yaml
   - metallb-system.yaml
+  - ingress-nginx.yaml
   - uptime-kuma.yaml
