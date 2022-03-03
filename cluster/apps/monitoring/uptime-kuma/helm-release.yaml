@@ -29,6 +29,10 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+        tls:
+          - secretName: uptime-kuma-server-tls
+            hosts:
+              - uptime.internal.domrocco.de
     persistence:
       data:
         enabled: true
