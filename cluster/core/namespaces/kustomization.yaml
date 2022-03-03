@@ -7,3 +7,4 @@ resources:
   - metallb-system.yaml
   - ingress-nginx.yaml
   - uptime-kuma.yaml
+  - velero.yaml

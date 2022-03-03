@@ -7,3 +7,4 @@ resources:
   - external-dns
   - metallb
   - ingress-nginx
+  - velero
