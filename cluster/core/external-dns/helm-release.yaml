@@ -8,6 +8,7 @@ spec:
   interval: 5m
   chart:
     spec:
+      # renovate: brew install --cask calibrehttps://kubernetes-sigs.github.io/external-dns/
       chart: external-dns
       version: 1.7.1
       sourceRef:
