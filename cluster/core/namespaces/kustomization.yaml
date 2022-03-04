@@ -6,6 +6,7 @@ resources:
   - cloudflare.yaml
   - external-dns.yaml
   - metallb-system.yaml
+  - monitoring.yaml
   - ingress-nginx.yaml
   - uptime-kuma.yaml
   - velero.yaml
