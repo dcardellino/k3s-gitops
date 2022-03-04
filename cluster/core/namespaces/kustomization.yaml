@@ -8,5 +8,5 @@ resources:
   - metallb-system.yaml
   - monitoring.yaml
   - ingress-nginx.yaml
-  - uptime-kuma.yaml
+  - vaultwarden.yaml
   - velero.yaml

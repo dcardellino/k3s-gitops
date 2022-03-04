@@ -1,0 +1,51 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: vaultwarden-test
+  namespace: vaultwarden-test
+spec:
+  interval: 1h
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: vaultwarden
+      version: 4.0.1
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+  values:
+    env:
+      DOMAIN: https://vaultwarden.internal.domrocco.de
+      DATABASE_URL: "postgresql://vaultwarden:${SECRET_VAULTWARDEN_DATABASE_PASSWORD}@vaultwarden-postgresql:5432/vaultwarden"
+      ADMIN_TOKEN: "${SECRET_VAULTWARDEN_ADMIN_TOKEN}"
+      SIGNUPS_ALLOWED: false
+      WEBSOCKET_ENABLED: true
+      TZ: "Europe/Berlin"
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-production
+        ingressClassName: nginx
+        hosts:
+          - host: vaultwarden.internal.domrocco.de
+            paths:
+              - path: /
+                pathType: Prefix
+              - path: /notifications/hub
+                pathType: Prefix
+                service:
+                  port: 3012
+              - path: /notifications/hub/negotiate
+                pathType: Prefix
+        tls:
+          - secretName: vaultwarden-tls
+            hosts:
+              - vaultwarden.internal.domrocco.de
+    postgresql:
+      enabled: true
+      postgresqlUsername: vaultwarden
+      postgresqlPassword: "${SECRET_VAULTWARDEN_DATABASE_PASSWORD}"
+      postgresqlDatabase: vaultwarden
