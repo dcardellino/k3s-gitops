@@ -44,7 +44,7 @@ spec:
         hosts:
           - prometheus.internal.domrocco.de
         paths:
-          - /
+          - "/"
         pathType: ImplementationSpecific
         tls:
           - secretName: prometheus-tls-secret
@@ -109,11 +109,11 @@ spec:
         ingressClassName: nginx
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt-production
-          external-dns/is-public: false
+          external-dns/is-public: "false"
         hosts:
           - alertmanager.internal.domrocco.de
         paths:
-          - /
+          - "/"
         pathType: ImplementationSpecific
         tls:
           - secretName: alertmanager-tls-secret
