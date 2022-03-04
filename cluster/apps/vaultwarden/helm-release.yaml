@@ -49,3 +49,8 @@ spec:
       postgresqlUsername: vaultwarden
       postgresqlPassword: "${SECRET_VAULTWARDEN_DATABASE_PASSWORD}"
       postgresqlDatabase: vaultwarden
+      persistence:
+        enabled: true
+        storageClass: nfs-sc
+        accessModes:
+          - ReadWriteOnce
