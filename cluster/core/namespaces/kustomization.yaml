@@ -10,3 +10,4 @@ resources:
   - ingress-nginx.yaml
   - vaultwarden.yaml
   - velero.yaml
+  - searx.yaml
