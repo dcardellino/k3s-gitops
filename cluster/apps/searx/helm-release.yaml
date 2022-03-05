@@ -21,9 +21,9 @@ spec:
       mortyKey: bNJi9AtpYKINSi10XmVjohloReWxO5Dz4qNVohUOeUU=
     service:
       main:
-    ports:
-      http:
-        port: 8080
+        ports:
+          http:
+            port: 8080
     ingress:
       main:
         enabled: true
