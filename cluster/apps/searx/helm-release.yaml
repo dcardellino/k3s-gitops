@@ -18,7 +18,7 @@ spec:
   values:
     searx:
       baseUrl: https://roogle.domrocco.de
-      mortyKey: ofR0HuwEFLi9y6NaqklznObRWmnXiY2UFMomCoI78xRsFEj9Fj
+      mortyKey: bNJi9AtpYKINSi10XmVjohloReWxO5Dz4qNVohUOeUU=
     ingress:
       main:
         enabled: true
