@@ -18,7 +18,7 @@ spec:
   values:
     env:
       DOMAIN: https://vaultwarden.internal.domrocco.de
-      DATABASE_URL: "postgresql://vaultwarden:${SECRET_VAULTWARDEN_DATABASE_PASSWORD}@vaultwarden-postgresql:5432/vaultwarden"
+      DATABASE_URL: "postgresql://vaultwarden:${SECRET_VAULTWARDEN_DATABASE_PASSWORD}@vaultwarden-test-postgresql:5432/vaultwarden"
       ADMIN_TOKEN: "${SECRET_VAULTWARDEN_ADMIN_TOKEN}"
       SIGNUPS_ALLOWED: false
       WEBSOCKET_ENABLED: true
