@@ -19,6 +19,11 @@ spec:
     searx:
       baseUrl: https://roogle.domrocco.de
       mortyKey: bNJi9AtpYKINSi10XmVjohloReWxO5Dz4qNVohUOeUU=
+    service:
+      main:
+    ports:
+      http:
+        port: 8080
     ingress:
       main:
         enabled: true
