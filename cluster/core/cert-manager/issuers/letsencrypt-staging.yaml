@@ -13,7 +13,7 @@ spec:
       - dns01:
           cloudflare:
             email: dominic.cardellino@protonmail.com
-            apiKeySecretRef:
+            apiTokenSecretRef:
               name: cloudflare-token-secret
               key: cloudflare-token
         selector:
