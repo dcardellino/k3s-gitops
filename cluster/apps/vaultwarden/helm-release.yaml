@@ -23,6 +23,11 @@ spec:
       SIGNUPS_ALLOWED: false
       WEBSOCKET_ENABLED: true
       TZ: "Europe/Berlin"
+    persistence:
+      config:
+        enabled: true
+        storageClass: nfs-sc
+        size: 1Gi
     ingress:
       main:
         enabled: true
