@@ -122,6 +122,7 @@ spec:
     grafana:
       enabled: true
       defaultDashboardsTimezone: "Europe/Berlin"
+      adminPassword: ${GRAFANA_ADMIN_PASSWORD}
       ingress:
         enabled: true
         ingressClassName: nginx
