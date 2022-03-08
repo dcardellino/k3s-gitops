@@ -22,6 +22,12 @@ spec:
       ADMIN_TOKEN: "${SECRET_VAULTWARDEN_ADMIN_TOKEN}"
       SIGNUPS_ALLOWED: false
       WEBSOCKET_ENABLED: true
+      SMTP_HOST: "mail.domrocco.de"
+      SMTP_FROM: "vaultwarden@domrocco.de"
+      SMTP_PORT: 587
+      SMTP_SSL: true
+      SMTP_USERNAME: ${SECRET_SMTP_USERNAME}
+      SMTP_PASSWORD: ${SECRET_SMTP_PASSWORD}
       TZ: "Europe/Berlin"
     persistence:
       config:
