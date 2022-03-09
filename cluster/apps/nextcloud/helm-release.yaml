@@ -70,6 +70,13 @@ spec:
       enabled: false
     internalDatabase:
       enabled: false
+    externalDatabase:
+      enabled: true
+      type: postgresql
+      host: nextcloud-postgresql.nextcloud.svc.cluster.local:5432
+      user: nextcloud
+      password: nextcloud
+      database: nextcloud
     postgresql:
       enabled: true
       postgresqlUsername: nextcloud
