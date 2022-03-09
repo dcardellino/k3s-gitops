@@ -1,0 +1,22 @@
+---
+dependency:
+  name: galaxy
+  options:
+    requirements-file: requirements.yml
+    role-file: requirements.yml
+driver:
+  name: docker
+platforms:
+  - name: ansible-playbook-homelab
+    image: "geerlingguy/docker-ubuntu2004-ansible:${MOLECULE_IMAGE_LABEL:-latest}"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    privileged: true
+    pre_build_image: true
+provisioner:
+  name: ansible
+  playbooks:
+    converge: ../../site.yml
+verifier:
+  name: testinfra
