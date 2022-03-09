@@ -27,7 +27,7 @@ spec:
       tls:
         - secretName: nextcloud-server-tls
           hosts:
-            cloud.domrocco.de
+            - cloud.domrocco.de
     nextcloud:
       host: cloud.domrocco.de
       username: administrator
