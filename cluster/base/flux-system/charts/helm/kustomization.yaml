@@ -6,6 +6,7 @@ resources:
   - external-dns-charts.yaml
   - jetstack-charts.yaml
   - ingress-nginx-charts.yaml
+  - dcardellino-charts.yaml
   - k8s-at-home-charts.yaml
   - metallb-charts.yaml
   - nfs-subdir-external-provisioner-charts.yaml
