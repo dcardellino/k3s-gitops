@@ -31,7 +31,7 @@ spec:
     nextcloud:
       host: cloud.domrocco.de
       username: administrator
-      password: Bratwurst2021!
+      password: ${SECRET_NEXTCLOUD_ADMIN_PASSWORD}
       mail:
         enabled: true
         fromAddress: nextcloud
@@ -65,7 +65,7 @@ spec:
       enabled: true
       storageClass: synology-csi-delete
       accessMode: ReadWriteOnce
-      size: 10Gi
+      size: 100Gi
     redis:
       enabled: false
     internalDatabase:
@@ -75,12 +75,12 @@ spec:
       type: postgresql
       host: nextcloud-postgresql.nextcloud.svc.cluster.local:5432
       user: nextcloud
-      password: nextcloud
+      password: ${SECRET_NEXTCLOUD_DATABASE_PASSWORD}
       database: nextcloud
     postgresql:
       enabled: true
       postgresqlUsername: nextcloud
-      postgresqlPassword: nextcloud
+      postgresqlPassword: ${SECRET_NEXTCLOUD_DATABASE_PASSWORD}
       postgresqlDatabase: nextcloud
       persistence:
         enabled: true
