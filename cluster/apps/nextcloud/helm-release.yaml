@@ -63,7 +63,7 @@ spec:
           );
     persistence:
       enabled: true
-      storageClass: nfs-sc
+      storageClass: synology-csi-delete
       accessMode: ReadWriteOnce
       size: 10Gi
     redis:
@@ -84,6 +84,6 @@ spec:
       postgresqlDatabase: nextcloud
       persistence:
         enabled: true
-        storageClass: nfs-sc
+        storageClass: synology-csi-delete
     cronjob:
-      enabled: true
+      enabled: false
