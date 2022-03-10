@@ -57,6 +57,7 @@ spec:
             'overwrite.cli.url' => 'https://cloud.domrocco.de',
             'filelocking.enabled' => 'true',
             'loglevel' => '3',
+            'installed' => true,
             'enable_previews' => true,
             'allow_user_to_change_display_name' => false,
             'lost_password_link' => 'true',
