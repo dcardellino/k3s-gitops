@@ -9,4 +9,5 @@ resources:
   - metallb
   - nfs-subdir-external-provisioner
   - ingress-nginx
+  - synology-csi
   - velero
