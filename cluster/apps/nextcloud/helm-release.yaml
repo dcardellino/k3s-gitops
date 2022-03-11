@@ -38,7 +38,7 @@ spec:
         domain: domrocco.de
         smtp:
           host: mail.domrocco.de
-          secure: ssl
+          secure: starttls
           port: 587
           name: ${SECRET_SMTP_USERNAME}
           password: ${SECRET_SMTP_PASSWORD}
