@@ -84,4 +84,4 @@ spec:
         enabled: true
         storageClass: synology-csi-delete
     cronjob:
-      enabled: false
+      enabled: true
