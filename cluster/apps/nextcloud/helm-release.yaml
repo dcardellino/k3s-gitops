@@ -49,23 +49,21 @@ spec:
         apps.config.php: true
         autoconfig.php: true
         redis.config.php: true
-      configs:
-        custom.config.php: |-
-          <?php
-          $CONFIG = array (
-            'overwriteprotocol' => 'https',
-            'overwrite.cli.url' => 'https://cloud.domrocco.de',
-            'filelocking.enabled' => 'true',
-            'loglevel' => '3',
-            'enable_previews' => true,
-            'allow_user_to_change_display_name' => false,
-            'lost_password_link' => 'true',
-          );
+      strategy:
+        type: RollingUpdate
+        rollingUpdate:
+          maxSurge: 1
+          maxUnavailable: 0
     persistence:
       enabled: true
       storageClass: synology-csi-delete
       accessMode: ReadWriteOnce
       size: 100Gi
+    extraEnv:
+      - name: OVERWRITEHOST
+        value: "cloud.domrocco.de"
+      - name: OVERWRITEPROTOCOL
+        value: https
     redis:
       enabled: false
     internalDatabase:
