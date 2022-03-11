@@ -49,6 +49,15 @@ spec:
         apps.config.php: true
         autoconfig.php: true
         redis.config.php: true
+      configs:
+        <?php
+        $CONFIG = array (
+          'overwriteprotocol' => 'https',
+          'overwrite.cli.url' => 'https://cloud.domrocco.de',
+          'filelocking.enabled' => 'true',
+          'loglevel' => '3',
+          'enable_previews' => false,
+        );
       strategy:
         type: RollingUpdate
         rollingUpdate:
