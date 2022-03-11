@@ -20,7 +20,6 @@ spec:
     createNamespace: true
   values:
     interval: 5m
-    logLevel: debug
     provider: cloudflare
     env:
       - name: CF_API_TOKEN
