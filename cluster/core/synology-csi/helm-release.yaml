@@ -33,3 +33,4 @@ spec:
           dsm: 192.168.180.21
           fsType: ext4
           location: /volume1
+          type: thin
