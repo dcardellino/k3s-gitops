@@ -65,7 +65,7 @@ spec:
           maxUnavailable: 0
     persistence:
       enabled: true
-      storageClass: synology-csi-delete
+      storageClass: synology-csi-retain
       accessMode: ReadWriteOnce
       size: 100Gi
     extraEnv:
@@ -91,6 +91,6 @@ spec:
       postgresqlDatabase: nextcloud
       persistence:
         enabled: true
-        storageClass: synology-csi-delete
+        storageClass: synology-csi-retain
     cronjob:
       enabled: true
