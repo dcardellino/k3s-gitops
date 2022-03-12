@@ -34,3 +34,12 @@ spec:
           fsType: ext4
           location: /volume1
           type: thin
+      reclaim:
+        isDefault: false
+        reclaimPolicy: Retain
+        volumeBindingMode: Immediate
+        parameters:
+          dsm: 192.168.180.21
+          fsType: ext4
+          location: /volume1
+          type: thin
