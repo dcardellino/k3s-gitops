@@ -61,6 +61,7 @@ spec:
               - targets:
                   - 192.168.180.15:9100
                   - 192.168.178.10:9100
+                  - 162.55.217.103:9100
         volumeClaimTemplate:
           spec:
             storageClassName: nfs-sc
