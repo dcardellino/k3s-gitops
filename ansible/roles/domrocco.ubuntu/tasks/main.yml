@@ -1,0 +1,24 @@
+---
+- ansible.builtin.import_tasks: includes/time.yml
+  tags:
+    - time
+
+- ansible.builtin.import_tasks: includes/packages.yml
+  tags:
+    - packages
+
+- ansible.builtin.import_tasks: includes/network.yml
+  tags:
+    - network
+
+- ansible.builtin.import_tasks: includes/filesystem.yml
+  tags:
+    - filesystem
+
+- ansible.builtin.import_tasks: includes/journald.yml
+  tags:
+    - journald
+
+- ansible.builtin.import_tasks: includes/unattended-upgrades.yml
+  tags:
+    - unattended-upgrades

@@ -1,0 +1,38 @@
+---
+k3s_release_version: v1.23.4+k3s1
+k3s_etcd_datastore: true
+k3s_server:
+  disable:
+    - traefik
+    - servicelb
+    - cloud-controller
+    - metrics-server
+    - local-storage
+  etcd-expose-metrics: true
+  kubelet-arg:
+    - "feature-gates=EphemeralContainers=true"
+    - "feature-gates=MixedProtocolLBService=true"
+    - "feature-gates=ReadWriteOncePod=true"
+  kube-controller-manager-arg:
+    - "feature-gates=EphemeralContainers=true"
+    - "feature-gates=MixedProtocolLBService=true"
+    - "feature-gates=ReadWriteOncePod=true"
+    - "bind-address=0.0.0.0"
+  kube-proxy-arg:
+    - "feature-gates=EphemeralContainers=true"
+    - "feature-gates=MixedProtocolLBService=true"
+    - "feature-gates=ReadWriteOncePod=true"
+    # Required to monitor component with kube-prometheus-stack
+    - "metrics-bind-address=0.0.0.0"
+  kube-scheduler-arg:
+    - "feature-gates=EphemeralContainers=true"
+    - "feature-gates=MixedProtocolLBService=true"
+    - "feature-gates=ReadWriteOncePod=true"
+    # Required to monitor component with kube-prometheus-stack
+    - "bind-address=0.0.0.0"
+  kube-apiserver-arg:
+    - "feature-gates=EphemeralContainers=true"
+    - "feature-gates=MixedProtocolLBService=true"
+    - "feature-gates=ReadWriteOncePod=true"
+    # Required for HAProxy health-checks
+    - "anonymous-auth=true"

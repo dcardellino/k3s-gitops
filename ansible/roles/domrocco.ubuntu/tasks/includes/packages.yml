@@ -1,0 +1,24 @@
+---
+- name: packages | upgrade all packages
+  ansible.builtin.apt:
+    upgrade: full
+    update_cache: true
+    cache_valid_time: 3600
+    autoclean: true
+    autoremove: true
+
+- name: packages | install packages
+  ansible.builtin.apt:
+    name: "{{ packages.install }}"
+    update_cache: true
+    cache_valid_time: 3600
+    autoclean: true
+  when: packages.install
+
+- name: packages | remove packages
+  ansible.builtin.apt:
+    name: "{{ packages.remove }}"
+    state: absent
+    autoremove: true
+    purge: true
+  when: packages.remove

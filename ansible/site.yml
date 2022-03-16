@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: true
+  gather_facts: true
+  vars_files:
+    - vars/k3s.yml
+
+  pre_tasks:
+    - name: Update APT Cache and install required packages
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+        name: acl
+
+  roles:
+    - role: domrocco.ubuntu
+      tags: ["ubuntu"]
+    - role: xanmanning.k3s
+      tags: ["k3s"]

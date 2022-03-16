@@ -1,0 +1,23 @@
+---
+# We're adding k3s_control_node to each host, this can be done in host_vars/
+# or group_vars/ as well - but for simplicity we are setting it here.
+k3s_cluster:
+  hosts:
+    dca-k3s-server-01:
+      ansible_host: 192.168.180.16
+      ansible_python_interpreter: /usr/bin/python3
+      ansible_user: dcardellino
+      k3s_control_node: true
+      k3s_become: true
+    dca-k3s-server-02:
+      ansible_host: 192.168.180.17
+      ansible_python_interpreter: /usr/bin/python3
+      ansible_user: dcardellino
+      k3s_control_node: true
+      k3s_become: true
+    dca-k3s-server-03:
+      ansible_host: 192.168.180.18
+      ansible_python_interpreter: /usr/bin/python3
+      ansible_user: dcardellino
+      k3s_control_node: true
+      k3s_become: true
