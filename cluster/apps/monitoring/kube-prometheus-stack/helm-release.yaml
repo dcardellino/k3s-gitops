@@ -122,6 +122,7 @@ spec:
               - alertmanager.internal.${SECRET_PUBLIC_DOMAIN}
     grafana:
       enabled: false
+      forceDeployDashboards: true
     kubeControllerManager:
       enabled: false
     kubeScheduler:

@@ -15,6 +15,9 @@ spec:
         name: grafana-charts
         namespace: flux-system
       interval: 5m
+  dependsOn:
+    - name: kube-prometheus-stack
+      namespace: monitoring
   install:
     createNamespace: true
     remediation:
@@ -46,6 +49,13 @@ spec:
         url: https://grafana.net
       auth.basic:
         disable_login_form: false
+    plugins:
+      - natel-discrete-panel
+      - pr0ps-trackmap-panel
+      - grafana-piechart-panel
+      - grafana-clock-panel
+      - vonage-status-panel
+      - grafana-worldmap-panel
     dashboardProviders:
       dashboardproviders.yaml:
         apiVersion: 1
@@ -71,6 +81,20 @@ spec:
             access: proxy
             url: http://prometheus-prometheus:9090
             isDefault: true
+    dashboards:
+      default:
+        flux-cluster:
+          url: https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/monitoring/grafana/dashboards/cluster.json
+          datasource: Prometheus
+        flux-control-plane:
+          url: https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/monitoring/grafana/dashboards/control-plane.json
+          datasource: Prometheus
+    sidecar:
+      dashboards:
+        enabled: true
+        searchNamespace: monitoring
+        provider:
+          foldersFromFilesStructure: true
     ingress:
       enabled: true
       ingressClassName: nginx
@@ -83,3 +107,9 @@ spec:
         - secretName: grafana-server-tls
           hosts:
             - "grafana.internal.${SECRET_PUBLIC_DOMAIN}"
+    resources:
+      requests:
+        cpu: 75m
+        memory: 128Mi
+      limits:
+        memory: 512Mi
