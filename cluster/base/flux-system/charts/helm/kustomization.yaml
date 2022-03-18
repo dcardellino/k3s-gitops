@@ -8,6 +8,7 @@ resources:
   - ingress-nginx-charts.yaml
   - grafana-charts.yaml
   - dcardellino-charts.yaml
+  - nextcloud-charts.yaml
   - k8s-at-home-charts.yaml
   - metallb-charts.yaml
   - nfs-subdir-external-provisioner-charts.yaml
