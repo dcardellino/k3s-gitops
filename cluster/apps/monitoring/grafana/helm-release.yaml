@@ -80,5 +80,6 @@ spec:
       hosts:
         - "grafana.internal.${SECRET_PUBLIC_DOMAIN}"
       tls:
-        - hosts:
+        - secretName: grafana-server-tls
+          hosts:
             - "grafana.internal.${SECRET_PUBLIC_DOMAIN}"
