@@ -9,10 +9,10 @@ spec:
   chart:
     spec:
       chart: nextcloud
-      version: 2.14.0
+      version: 2.13.1
       sourceRef:
         kind: HelmRepository
-        name: dcardellino-charts
+        name: nextcloud-charts
         namespace: flux-system
   values:
     ingress:
