@@ -58,3 +58,27 @@ spec:
             editable: true
             options:
               path: /var/lib/grafana/dashboards/default
+    datasources:
+      datasources.yaml:
+        apiVersion: 1
+        # list of datasources that should be deleted from the database
+        deleteDatasources:
+          - name: Loki
+            orgId: 1
+        datasources:
+          - name: Prometheus
+            type: prometheus
+            access: proxy
+            url: http://prometheus-prometheus:9090
+            isDefault: true
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-production
+        external-dns/is-public: "false"
+      hosts:
+        - "grafana.internal.${SECRET_PUBLIC_DOMAIN}"
+      tls:
+        - hosts:
+            - "grafana.internal.${SECRET_PUBLIC_DOMAIN}"
