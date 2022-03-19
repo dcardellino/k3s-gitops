@@ -10,4 +10,5 @@ resources:
   - nfs-subdir-external-provisioner
   - ingress-nginx
   - synology-csi
+  - system-upgrade
   - velero
