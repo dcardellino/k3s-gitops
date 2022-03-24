@@ -35,4 +35,8 @@ spec:
           storageClass: synology-csi-retain
     redis:
       enabled: true
-      storageClass: synology-csi-retain
+      master:
+        persistence:
+          enabled: true
+          storageClass: synology-csi-retain
+          size: 2Gi
