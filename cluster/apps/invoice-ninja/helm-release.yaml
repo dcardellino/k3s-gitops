@@ -34,7 +34,7 @@ spec:
           enabled: true
           storageClass: synology-csi-retain
     redis:
-      enabled: true
+      enabled: false
       master:
         persistence:
           enabled: true
