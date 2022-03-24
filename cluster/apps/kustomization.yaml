@@ -5,6 +5,7 @@ resources:
   - monitoring
   - media
   - nextcloud
+  - invoice-ninja
   - searx
   - vaultwarden
   - system-upgrade

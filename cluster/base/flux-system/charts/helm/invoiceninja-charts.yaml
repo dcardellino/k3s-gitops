@@ -1,0 +1,10 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: invoiceninja-charts
+  namespace: flux-system
+spec:
+  interval: 15m
+  url: https://invoiceninja.github.io/dockerfiles
+  timeout: 3m

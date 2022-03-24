@@ -10,6 +10,7 @@ resources:
   - media.yaml
   - nextcloud.yaml
   - ingress-nginx.yaml
+  - invoice-ninja.yaml
   - vaultwarden.yaml
   - velero.yaml
   - searx.yaml
