@@ -109,6 +109,9 @@ spec:
             - receiver: 'blackhole'
               match:
                 alertname: 'Watchdog'
+            - receiver: 'slack-notifications'
+              match:
+                prometheus: 'monitoring/prometheus-prometheus'
       ingress:
         enabled: true
         ingressClassName: nginx
