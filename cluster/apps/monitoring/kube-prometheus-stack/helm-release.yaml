@@ -88,13 +88,17 @@ spec:
                   storage: 1Gi
       config:
         global:
-          resolve_timeout: 5m
+          resolve_timeout: 1m
+          slack_api_url: ${SECRET_SLACK_API_URL}
         receivers:
           - name: blackhole
           - name: alertmanager-bot
             webhook_configs:
               - url: http://alertmanager-bot.monitoring.svc.cluster.local:8080
                 send_resolved: true
+          - name: 'slack-notifications'
+            slack_configs:
+              - send_resolved: true
         route:
           group_by: ["alertname", "job"]
           group_wait: 30s
