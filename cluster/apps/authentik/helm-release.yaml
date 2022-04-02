@@ -38,7 +38,9 @@ spec:
           - ReadWriteOnce
     redis:
       enabled: true
-      storageClass: nfs-sc
+      master:
+        persistence:
+          enabled: false
     ingress:
       enabled: true
       ingressClassName: nginx
