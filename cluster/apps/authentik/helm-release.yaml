@@ -37,7 +37,8 @@ spec:
         accessModes:
           - ReadWriteOnce
     redis:
-      enabled: false
+      enabled: true
+      storageClass: nfs-sc
     ingress:
       enabled: true
       ingressClassName: nginx
