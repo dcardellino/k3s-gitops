@@ -37,7 +37,7 @@ spec:
         accessModes:
           - ReadWriteOnce
     redis:
-      enabled: true
+      enabled: false
     ingress:
       enabled: true
       ingressClassName: nginx
