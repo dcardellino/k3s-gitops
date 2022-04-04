@@ -55,6 +55,11 @@ spec:
         retention: 6h
         walCompression: true
         additionalScrapeConfigs:
+          - job_name: "haproxy-exporter"
+            honor_timestamps: true
+            static_configs:
+              - targets:
+                  - 192.168.180.15:9101
           - job_name: "node-exporter"
             honor_timestamps: true
             static_configs:

@@ -89,6 +89,10 @@ spec:
         flux-control-plane:
           url: https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/monitoring/grafana/dashboards/control-plane.json
           datasource: Prometheus
+        haproxy:
+          gnetId: 2428
+          revision: 7
+          datasource: Prometheus
     sidecar:
       dashboards:
         enabled: true
