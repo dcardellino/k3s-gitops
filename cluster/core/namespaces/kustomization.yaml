@@ -9,6 +9,7 @@ resources:
   - metallb-system.yaml
   - monitoring.yaml
   - media.yaml
+  - cattle-system.yaml
   - nextcloud.yaml
   - ingress-nginx.yaml
   - invoice-ninja.yaml
