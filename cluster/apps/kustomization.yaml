@@ -6,7 +6,6 @@ resources:
   - monitoring
   - nextcloud
   - invoice-ninja
-  - searx
   - vaultwarden
   - system-upgrade
   - rancher

@@ -15,4 +15,3 @@ resources:
   - invoice-ninja.yaml
   - vaultwarden.yaml
   - velero.yaml
-  - searx.yaml
