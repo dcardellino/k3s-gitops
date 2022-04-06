@@ -56,12 +56,16 @@ The Git repository contains the following directories under [cluster](./cluster/
 - **core**: directory (depends on **crds**) are important infrastructure applications (grouped by namespace) that should never be pruned by [Flux](https://github.com/fluxcd/flux2).
 - **apps**: directory (depends on **core**) is where your common applications (grouped by namespace) could be placed, [Flux](https://github.com/fluxcd/flux2) will prune resources here if they are not tracked by Git anymore.
 
+---
 
 ## 🔧 Hardware
 
 | Device                    | Hostname          | Disk Size    | Ram  | Operating System      | Purpose                              |
-|---------------------------|-------------------|---------------------|-----------------------|--------------------------------------|
+|---------------------------|-------------------|--------------|------|-----------------------|--------------------------------------|
 | Lenovo Thinkcentre M72e   | dca-k3s-server-01 | 120GB        | 8GB  | Ubuntu Server 20.04.4 | Kubernetes Control Plane,etcd,worker |
 | Lenovo Thinkcentre M72e   | dca-k3s-server-02 | 120GB        | 8GB  | Ubuntu Server 20.04.4 | Kubernetes Control Plane,etcd,worker |
 | Lenovo Thinkcentre M72e   | dca-k3s-server-03 | 120GB        | 8GB  | Ubuntu Server 20.04.4 | Kubernetes Control Plane,etcd,worker |
 | Lenovo Thinkcentre M72e   | dca-k3s-server-04 | 120GB        | 8GB  | Ubuntu Server 20.04.4 | Kubernetes Control Plane,etcd,worker |
+| Synology DS418 Play       | dca-nas-server-01 | 32TB         | 4GB  | N/A                   | NAS                                  |
+
+---
