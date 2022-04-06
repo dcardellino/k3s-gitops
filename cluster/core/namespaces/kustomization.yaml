@@ -6,7 +6,6 @@ resources:
   - keycloak.yaml
   - cloudflare.yaml
   - external-dns.yaml
-  - matrix.yaml
   - metallb-system.yaml
   - monitoring.yaml
   - media.yaml
