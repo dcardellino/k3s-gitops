@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - cert-manager.yaml
   - authentik.yaml
+  - keycloak.yaml
   - cloudflare.yaml
   - external-dns.yaml
   - metallb-system.yaml
