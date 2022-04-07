@@ -55,9 +55,6 @@ spec:
       host: cloud.${SECRET_PUBLIC_DOMAIN}
       username: administrator
       password: ${SECRET_NEXTCLOUD_ADMIN_PASSWORD}
-      extraVolumeMounts:
-        - name: nfs
-          mountPath: "/legacy_data"
       mail:
         enabled: true
         fromAddress: admin
