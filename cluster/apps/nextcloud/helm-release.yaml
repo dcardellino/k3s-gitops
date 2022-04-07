@@ -112,4 +112,4 @@ spec:
         enabled: true
         storageClass: synology-csi-retain
     cronjob:
-      enabled: true
+      enabled: false
