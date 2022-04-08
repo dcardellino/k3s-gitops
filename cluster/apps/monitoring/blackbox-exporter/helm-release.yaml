@@ -34,6 +34,17 @@ spec:
           timeout: 30s
           icmp:
             preferred_ip_protocol: "ip4"
+    serviceMonitor:
+      enabled: true
+      defaults:
+        labels:
+          release: prometheus
+        interval: 2m
+        scrapeTimeout: 30s
+      targets:
+        - module: http_2xx
+          name: nextcloud-http
+          url: "https://cloud.${SECRET_PUBLIC_DOMAIN}"
     prometheusRule:
       enabled: true
       additionalLabels:
