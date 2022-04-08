@@ -38,7 +38,7 @@ spec:
       enabled: true
       defaults:
         labels:
-          release: prometheus
+          release: kube-prometheus-stack
         interval: 2m
         scrapeTimeout: 30s
       targets:
