@@ -45,6 +45,12 @@ spec:
         - module: http_2xx
           name: nextcloud-http
           url: "https://cloud.${SECRET_PUBLIC_DOMAIN}"
+        - module: http_2xx
+          name: vaultwarden-http
+          url: "https://vaultwarden.${SECRET_PUBLIC_DOMAIN}"
+        - module: http_2xx
+          name: keycloak-http
+          url: "https://id.internal.${SECRET_PUBLIC_DOMAIN}"
     prometheusRule:
       enabled: true
       additionalLabels:
