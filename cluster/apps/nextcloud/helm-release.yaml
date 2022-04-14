@@ -97,7 +97,8 @@ spec:
       postgresqlPassword: ${SECRET_NEXTCLOUD_DATABASE_PASSWORD}
       postgresqlDatabase: nextcloud
       persistence:
-        enabled: true
-        storageClass: synology-csi-retain
+        primary:
+          enabled: true
+          storageClass: synology-csi-retain
     cronjob:
       enabled: false
