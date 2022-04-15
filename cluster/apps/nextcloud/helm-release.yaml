@@ -136,3 +136,7 @@ spec:
           storageClass: synology-csi-retain
     cronjob:
       enabled: true
+    metrics:
+      enabled: true
+      https: true
+      token: ${SECRET_NEXTCLOUD_API_TOKEN}
