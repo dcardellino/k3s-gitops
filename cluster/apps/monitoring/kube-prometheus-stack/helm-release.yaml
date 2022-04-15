@@ -60,6 +60,11 @@ spec:
             static_configs:
               - targets:
                   - 192.168.180.15:9101
+          - job_name: "nextcloud"
+            scrape_interval: 90s
+            static_configs:
+              - targets:
+                  - nextcloud-metrics.nextcloud.svc.cluster.local:9205
           - job_name: "node-exporter"
             honor_timestamps: true
             static_configs:
