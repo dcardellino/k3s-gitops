@@ -78,7 +78,7 @@ spec:
             'oidc_login_auto_redirect' => false,
             'oidc_login_logout_url' => 'https://id.internal.${SECRET_PUBLIC_DOMAIN}/auth/realms/chaoscorporation/protocol/openid-connect/logout?redirect_uri=https://cloud.${SECRET_PUBLIC_DOMAIN}',
             'oidc_login_end_session_redirect' => false,
-            'oidc_login_default_quota' => '1000000000',
+            'oidc_login_default_quota' => '-1',
             'oidc_login_button_text' => 'Mit SSO anmelden',
             'oidc_login_hide_password_form' => false,
             'oidc_login_use_id_token' => false,
@@ -101,7 +101,6 @@ spec:
             'oidc_login_public_key_caching_time' => 300,
             'oidc_login_min_time_between_jwks_requests' => 10,
             'oidc_login_well_known_caching_time' => 300,
-
           );
       strategy:
         type: RollingUpdate
