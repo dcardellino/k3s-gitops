@@ -6,6 +6,7 @@ resources:
   - cert-manager
   - cloudflared
   - external-dns
+  - kured
   - metallb
   - nfs-subdir-external-provisioner
   - ingress-nginx
