@@ -22,7 +22,7 @@ spec:
     configuration:
       annotateNodes: true
       timeZone: Europe/Berlin
-      prometheusUrl: http://prometheus-prometheus.monitoring.svc.cluster.local
+      prometheusUrl: http://prometheus-prometheus.monitoring.svc.cluster.local:9090
       notifyUrl: ${SECRET_KURED_SLACK_API_URL}
     metrics:
       create: true
