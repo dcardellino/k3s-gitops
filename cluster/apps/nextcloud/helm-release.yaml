@@ -125,7 +125,8 @@ spec:
       size: 150Gi
     redis:
       enabled: true
-      storageClass: nfs-sc
+      global:
+        storageClass: nfs-sc
       auth:
         enabled: true
         password: ${SECRET_NEXTCLOUD_REDIS_PASSWORD}
