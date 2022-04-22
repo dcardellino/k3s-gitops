@@ -126,8 +126,6 @@ spec:
       enabled: true
       global:
         storageClass: nfs-sc
-      replica:
-        replicaCount: 1
       auth:
         enabled: true
         password: ${SECRET_NEXTCLOUD_REDIS_PASSWORD}
