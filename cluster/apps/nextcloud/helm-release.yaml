@@ -101,6 +101,18 @@ spec:
             'oidc_login_min_time_between_jwks_requests' => 10,
             'oidc_login_well_known_caching_time' => 300,
           );
+        redis.config.php: |-
+          <?php
+          $CONFIG = array (
+            'memcache.local' => '\\OC\\Memcache\\Redis',
+            'memcache.distributed' => '\OC\Memcache\Redis',
+            'memcache.locking' => '\OC\Memcache\Redis',
+            'redis' => array(
+              'host' => getenv('REDIS_HOST'),
+              'port' => getenv('REDIS_HOST_PORT') ?: 6379,
+              'password' => getenv('REDIS_HOST_PASSWORD')
+            )
+          );
       strategy:
         type: RollingUpdate
         rollingUpdate:
@@ -112,7 +124,11 @@ spec:
       accessMode: ReadWriteOnce
       size: 150Gi
     redis:
-      enabled: false
+      enabled: true
+      storageClass: nfs-sc
+      auth:
+        enabled: true
+        password: ${SECRET_NEXTCLOUD_REDIS_PASSWORD}
     internalDatabase:
       enabled: false
     externalDatabase:
