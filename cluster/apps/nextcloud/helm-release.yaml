@@ -59,7 +59,7 @@ spec:
         apcu.config.php: true
         apps.config.php: true
         autoconfig.php: true
-        redis.config.php: true
+        redis.config.php: false
       configs:
         custom.config.php: |-
           <?php
