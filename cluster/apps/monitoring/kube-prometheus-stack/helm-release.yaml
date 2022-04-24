@@ -58,6 +58,7 @@ spec:
               resources:
                 requests:
                   storage: 10Gi
+        enableAdminAPI: true
         replicas: 1
         ruleSelectorNilUsesHelmValues: false
         serviceMonitorSelectorNilUsesHelmValues: false
