@@ -72,6 +72,13 @@ spec:
             static_configs:
               - targets:
                   - 192.168.180.15:9101
+          - job_name: "mailcow"
+            static_configs:
+              - targets:
+                  - mail.${SECRET_PUBLIC_DOMAIN}:9099
+            params:
+              host: ["mail.${SECRET_PUBLIC_DOMAIN}"]
+              apiKey: $SECRET_MAILCOW_API_KEY
           - job_name: "nextcloud"
             scrape_interval: 90s
             static_configs:
