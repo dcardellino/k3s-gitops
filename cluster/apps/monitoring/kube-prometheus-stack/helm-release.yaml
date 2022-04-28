@@ -77,7 +77,7 @@ spec:
                   - mail.${SECRET_PUBLIC_DOMAIN}:9099
             params:
               host: ["mail.${SECRET_PUBLIC_DOMAIN}"]
-              apiKey: ${SECRET_MAILCOW_API_KEY}
+              apiKey: "${SECRET_MAILCOW_API_KEY}"
           - job_name: "nextcloud"
             scrape_interval: 90s
             static_configs:
