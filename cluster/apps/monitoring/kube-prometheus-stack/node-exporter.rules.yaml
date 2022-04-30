@@ -1,0 +1,43 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: node-exporter
+  namespace: monitoring
+spec:
+  groups:
+    - name: node_exporter
+      rules:
+        - alert: HostNotReachable
+          expr: up{job="node-exporter"} == 0
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+          summary: "Node-Exporter on {{ $labels.instance }} is not reachable"
+          description: "{{ $labels.instance }} is expected to be reachable but could not be scraped for more than 1 minute."
+        - alert: HostOutOfMemory
+          expr: node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100 < 10
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Host has less than 10% memory left for more than 5 minutes (instance {{ $labels.instance }})"
+            description: "There is not much memory left on the host. Go and check if there is a process consuming to many memory."
+        - alert: HostMemoryUnderMemoryPressure
+          expr: rate(node_vmstat_pgmajfault[1m]) > 1000
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Host memory under memory pressure on {{ $labels.instance }}"
+            description: "The node is under heavy memory pressure. There has been {{ $value }} major page faults per second in the last 5 minutes. The expected value is less than 1000 per second."
+            context: "This behaviour indicates that the system shuffles memory around in order to satisfy memory requests. A major page fault happens when the system is loading a memory page from disk."
+            action: "Check the memory consumption of processes on the instance. Mostly this happens because the instance is running out of memory."
+        - alert: HostSwapIsFillingUp
+          expr: (1 - (node_memory_SwapFree_bytes / node_memory_SwapTotal_bytes)) * 100 > 80
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Host swap is filling up on {{ $labels.instance }}"
+            description: "The swap on {{ $labels.instance }} is {{ $value }}% full. The expected value is less than 80%."
