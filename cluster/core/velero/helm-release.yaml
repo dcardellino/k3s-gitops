@@ -45,3 +45,9 @@ spec:
     credentials:
       existingSecret: velero-s3-credentials
     deployRestic: true
+    metrics:
+      enabled: true
+      scrapeInterval: 30s
+      scrapeTimeout: 10s
+      serviceMonitor:
+        enabled: true
