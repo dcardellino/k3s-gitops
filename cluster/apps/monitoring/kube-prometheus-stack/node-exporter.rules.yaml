@@ -13,8 +13,8 @@ spec:
           labels:
             severity: warning
           annotations:
-          summary: "Node-Exporter on {{ $labels.instance }} is not reachable"
-          description: "{{ $labels.instance }} is expected to be reachable but could not be scraped for more than 1 minute."
+            summary: "Node-Exporter on {{ $labels.instance }} is not reachable"
+            description: "{{ $labels.instance }} is expected to be reachable but could not be scraped for more than 1 minute."
         - alert: HostOutOfMemory
           expr: node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100 < 10
           for: 5m
