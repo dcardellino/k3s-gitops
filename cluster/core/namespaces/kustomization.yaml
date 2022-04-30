@@ -15,5 +15,4 @@ resources:
   - ingress-nginx.yaml
   - invoice-ninja.yaml
   - vaultwarden.yaml
-  - pihole.yaml
   - velero.yaml
