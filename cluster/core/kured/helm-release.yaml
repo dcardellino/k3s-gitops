@@ -24,7 +24,7 @@ spec:
       timeZone: Europe/Berlin
       prometheusUrl: http://prometheus-prometheus.monitoring.svc.cluster.local:9090
       notifyUrl: ${SECRET_KURED_SLACK_API_URL}
-      alertFilterRegexp: ^(Watchdog)$
+      alertFilterRegexp: ^(Watchdog|HostOutOfMemory|RebootRequired|RebootScheduled)$
     metrics:
       create: true
     service:
