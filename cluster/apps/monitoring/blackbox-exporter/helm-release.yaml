@@ -43,7 +43,7 @@ spec:
         scrapeTimeout: 30s
       targets:
         - module: http_2xx
-          name: nextcloud-http
+          name: cloud-http
           url: "https://cloud.${SECRET_PUBLIC_DOMAIN}"
         - module: http_2xx
           name: vaultwarden-http
@@ -51,6 +51,9 @@ spec:
         - module: http_2xx
           name: keycloak-http
           url: "https://id.internal.${SECRET_PUBLIC_DOMAIN}"
+        - module: http_2xx
+          name: nextcloud-http
+          url: "https://nextcloud.${SECRET_PUBLIC_DOMAIN}"
     prometheusRule:
       enabled: true
       additionalLabels:

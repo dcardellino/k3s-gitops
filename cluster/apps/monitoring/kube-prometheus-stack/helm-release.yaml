@@ -90,6 +90,7 @@ spec:
                   - 192.168.180.15:9100
                   - 192.168.178.10:9100
                   - 162.55.217.103:9100
+                  - 132.145.242.53:9100
     prometheusOperator:
       prometheusConfigReloader:
         resources:
@@ -114,10 +115,6 @@ spec:
           slack_api_url: ${SECRET_SLACK_API_URL}
         receivers:
           - name: blackhole
-          - name: alertmanager-bot
-            webhook_configs:
-              - url: http://alertmanager-bot.monitoring.svc.cluster.local:8080
-                send_resolved: true
           - name: 'slack-notifications'
             slack_configs:
               - send_resolved: true
