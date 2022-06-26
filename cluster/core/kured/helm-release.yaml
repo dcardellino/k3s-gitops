@@ -22,8 +22,6 @@ spec:
     configuration:
       annotateNodes: true
       timeZone: "Europe/Berlin"
-      startTime: "0:00"
-      endTime: "4:00"
       prometheusUrl: http://prometheus-prometheus.monitoring.svc.cluster.local:9090
       notifyUrl: ${SECRET_KURED_SLACK_API_URL}
       alertFilterRegexp: ^(Watchdog|HostOutOfMemory|RebootRequired|RebootScheduled)$
