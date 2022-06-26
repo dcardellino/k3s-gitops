@@ -1,0 +1,25 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: node-exporter-restic
+  namespace: monitoring
+spec:
+  - name: node_exporter_restic
+    rules:
+      - alert: ResticBackupTooOld
+        for: 0m
+        expr: time() - restic_backup_last_success_seconds > 93600 # 26h in seconds
+        labels:
+          severity: warning
+        annotations:
+          summary: "Restic backup on {{ $labels.instance }} is older than 26h"
+          description: "Last successful Restic backup on {{ $labels.instance }} was {{ $.Value | humanizeDuration }} ago. Investigate whether there is a problem with the restic backups on the host."
+      - alert: ResticBackupFailed
+        for: 60m
+        expr: restic_backup_failure == 1
+        labels:
+          severity: warning
+        annotations:
+          summary: "Restic backup on '{{ $labels.instance }}' failed"
+          description: "Last Restic backup on '{{ $labels.instance }}' was not successful. Investigate whether there is a problem with the restic backups on the host."
