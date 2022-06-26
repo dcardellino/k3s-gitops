@@ -19,24 +19,5 @@ spec:
   values:
     config:
       lokiAddress: http://loki.logging.svc.cluster.local:3100/loki/api/v1/push
-      snippets:
-        extraScrapeConfigs: |
-          - job_name: syslog
-            syslog:
-              listen_address: 0.0.0.0:1514
-              label_structured_data: true
-              labels:
-                job: syslog
-            relabel_configs:
-            - source_labels: ['__syslog_message_hostname']
-              target_label: host
-    extraPorts:
-      syslog:
-        name: syslog
-        containerPort: 1514
-        service:
-          type: LoadBalancer
-          externalIPs:
-            - ${LB_SYSLOG}
     serviceMonitor:
       enabled: true
