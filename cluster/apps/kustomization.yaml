@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - keycloak
   - monitoring
+  - logging
   - nextcloud
   - vaultwarden
   - system-upgrade

@@ -13,6 +13,6 @@ resources:
   - cattle-system.yaml
   - nextcloud.yaml
   - ingress-nginx.yaml
-  - invoice-ninja.yaml
   - vaultwarden.yaml
+  - logging.yaml
   - velero.yaml
