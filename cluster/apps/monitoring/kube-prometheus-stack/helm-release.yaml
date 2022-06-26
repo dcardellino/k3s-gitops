@@ -147,11 +147,8 @@ spec:
           receiver: 'slack-notifications'
           routes:
             - receiver: 'blackhole'
-              match:
-                alertname: 'Watchdog'
-            - receiver: 'slack-notifications'
-              match:
-                prometheus: 'monitoring/prometheus-prometheus'
+              matchers:
+                - alertname =~ "InfoInhibitor|Watchdog"
       ingress:
         enabled: true
         ingressClassName: nginx
