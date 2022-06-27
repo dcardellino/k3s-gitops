@@ -3,10 +3,10 @@ ansible_become: true
 packages:
   install:
     - apt-transport-https
+    - apparmor-utils
     - arptables
     - ebtables
     - nfs-common
   remove:
-    - apparmor
     - snapd
 timezone: 'Europe/Berlin'
