@@ -78,11 +78,6 @@ spec:
             params:
               host: ["mail.${SECRET_PUBLIC_DOMAIN}"]
               apiKey: ["${SECRET_MAILCOW_API_KEY}"]
-          - job_name: "nextcloud"
-            scrape_interval: 90s
-            static_configs:
-              - targets:
-                  - nextcloud-metrics.nextcloud.svc.cluster.local:9205
           - job_name: "node-exporter"
             honor_timestamps: true
             static_configs:
