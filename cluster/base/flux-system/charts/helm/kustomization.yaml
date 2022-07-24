@@ -16,4 +16,3 @@ resources:
   - nfs-subdir-external-provisioner-charts.yaml
   - prometheus-community-charts.yaml
   - vmware-tanzu-charts.yaml
-  - rancher-charts.yaml
