@@ -6,7 +6,6 @@ resources:
   - external-dns-charts.yaml
   - jetstack-charts.yaml
   - ingress-nginx-charts.yaml
-  - invoiceninja-charts.yaml
   - grafana-charts.yaml
   - dcardellino-charts.yaml
   - weaveworks-charts.yaml
