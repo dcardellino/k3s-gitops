@@ -10,7 +10,6 @@ resources:
   - grafana-charts.yaml
   - dcardellino-charts.yaml
   - weaveworks-charts.yaml
-  - nextcloud-charts.yaml
   - k8s-at-home-charts.yaml
   - metallb-charts.yaml
   - nfs-subdir-external-provisioner-charts.yaml

@@ -8,7 +8,6 @@ resources:
   - kured.yaml
   - metallb-system.yaml
   - monitoring.yaml
-  - nextcloud.yaml
   - ingress-nginx.yaml
   - vaultwarden.yaml
   - logging.yaml
