@@ -5,4 +5,3 @@ resources:
   - monitoring
   - logging
   - vaultwarden
-  - system-upgrade
