@@ -3,7 +3,7 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   namespace: monitoring
-  name: healthchecks-heartbeat
+  name: &app healthchecks-heartbeat
 spec:
   schedule: "* * * * *"
   concurrencyPolicy: "Forbid"
@@ -17,26 +17,26 @@ spec:
           automountServiceAccountToken: false
           restartPolicy: OnFailure
           containers:
-            - name: healthchecks-heartbeat
+            - name: *app
               image: ghcr.io/k8s-at-home/kubectl:v1.24.3
               envFrom:
                 - secretRef:
-                    name: healthchecks-heartbeat
+                    name: *app
               command:
                 - "/bin/bash"
-                - "/app/healthchecks-heartbeat.sh"
+                - &scriptPath "/app/healthchecks-heartbeat.sh"
               volumeMounts:
-                - name: healthchecks-heartbeat
-                  mountPath: "/app/healthchecks-heartbeat.sh"
-                  subPath: healthchecks-heartbeat.sh
+                - name: *app
+                  mountPath: *scriptPath
+                  subPath: &scriptName healthchecks-heartbeat.sh
                   readOnly: true
           volumes:
-            - name: healthchecks-heartbeat
+            - name: *app
               projected:
                 defaultMode: 0775
                 sources:
                   - configMap:
-                      name: healthchecks-heartbeat
+                      name: *app
                       items:
-                        - key: healthchecks-heartbeat.sh
-                          path: healthchecks-heartbeat.sh
+                        - key: *scriptName
+                          path: *scriptName
