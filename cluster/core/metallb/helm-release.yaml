@@ -21,7 +21,11 @@ spec:
   values:
     configInline:
       address-pools:
-      - name: default
-        protocol: layer2
-        addresses:
-          - 192.168.180.10/32
+        - name: default
+          protocol: layer2
+          addresses:
+            - 192.168.180.10/32
+        - name: network-services
+          protocol: layer2
+          addresses:
+            - 192.168.180.11/32
