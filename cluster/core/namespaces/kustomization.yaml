@@ -12,3 +12,4 @@ resources:
   - vaultwarden.yaml
   - logging.yaml
   - velero.yaml
+  - pihole.yaml
