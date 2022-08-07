@@ -38,5 +38,5 @@ spec:
                   - configMap:
                       name: healthchecks-heartbeat
                       items:
-                        - key: healthchecks-heartbeat
-                          path: healthchecks-heartbeat
+                        - key: healthchecks-heartbeat.sh
+                          path: healthchecks-heartbeat.sh
