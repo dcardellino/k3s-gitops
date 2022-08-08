@@ -110,6 +110,13 @@ spec:
           slack_api_url: ${SECRET_SLACK_API_URL}
         receivers:
           - name: blackhole
+          - name: opsgenie
+            opsgenie_configs:
+              - responders:
+                  - id: ${SECRET_OPSGENIE_TEAM_ID}
+                    type: team
+                api_key: ${SECRET_OPSGENIE_API_KEY}
+                send_resolved: true
           - name: 'slack-notifications'
             slack_configs:
               - send_resolved: true
