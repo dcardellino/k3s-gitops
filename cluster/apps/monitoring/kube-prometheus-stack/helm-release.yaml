@@ -151,6 +151,9 @@ spec:
             - receiver: 'blackhole'
               matchers:
                 - alertname =~ "InfoInhibitor|Watchdog"
+            - receiever: 'opsgenie'
+              matchers:
+                - prometheus = "monitoring/prometheus-prometheus"
       ingress:
         enabled: true
         ingressClassName: nginx
