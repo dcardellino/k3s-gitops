@@ -1,0 +1,37 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: haproxy
+  namespace: haproxy
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: haproxy
+      version: 1.15.0
+      sourceRef:
+        kind: HelmRepository
+        name: haproxytech-charts
+        namespace: flux-system
+      interval: 5m
+  install:
+    createNamespace: true
+  values:
+    kind: DaemonSet
+    config: |
+      global
+        log stdout format raw local0
+        maxconn 1024
+      defaults
+        log global
+        timeout client 60s
+        timeout connect 60s
+        timeout server 60s
+
+      frontend fe_main
+        bind :80
+        default_backend be_main
+
+      backend be_main
+        server server1 192.168.180.21:9100 check
