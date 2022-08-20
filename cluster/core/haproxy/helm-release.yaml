@@ -40,10 +40,26 @@ spec:
         mode http
         bind :80
         bind :443 ssl crt /usr/local/etc/ssl/tls-combined.pem no-sslv3
+        http-request redirect scheme https unless { ssl_fc }
         option forwardfor
         acl nas hdr(host) -i nas.internal.${SECRET_PUBLIC_DOMAIN}
         use_backend nas if nas
+        acl pictures hdr(host) -i pictures.internal.${SECRET_PUBLIC_DOMAIN}
+        use_backend pictures if pictures
+        acl drive hdr(host) -i drive.internal.${SECRET_PUBLIC_DOMAIN}
+        use_backend drive if drive
+        acl plex hdr(host) -i plex.internal.${SECRET_PUBLIC_DOMAIN}
+        use_backend plex if plex
 
       backend nas
         mode http
         server nas.internal.${SECRET_PUBLIC_DOMAIN} 192.168.180.21:443 check ssl verify none
+      backend pictures
+        mode http
+        server pictures.internal.${SECRET_PUBLIC_DOMAIN} 192.168.180.21:443 check ssl verify none
+      backend drive
+        mode http
+        server drive.internal.${SECRET_PUBLIC_DOMAIN} 192.168.180.21:443 check ssl verify none
+      backend plex
+        mode http
+        server plex.internal.${SECRET_PUBLIC_DOMAIN} 192.168.180.21:32400 check ssl verify none
