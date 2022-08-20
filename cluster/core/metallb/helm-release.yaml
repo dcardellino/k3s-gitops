@@ -29,3 +29,7 @@ spec:
           protocol: layer2
           addresses:
             - 192.168.180.11/32
+        - name: haproxy
+          protocol: layer2
+          addresses:
+            - 192.168.180.12/32
