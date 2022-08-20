@@ -9,6 +9,7 @@ resources:
   - metallb-system.yaml
   - monitoring.yaml
   - ingress-nginx.yaml
+  - haproxy.yaml
   - vaultwarden.yaml
   - logging.yaml
   - velero.yaml
