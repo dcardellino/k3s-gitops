@@ -6,8 +6,6 @@ metadata:
   namespace: haproxy
 spec:
   secretName: nas-tls-secret
-  additionalOutputFormats:
-    - type: CombinedPEM
   commonName: nas.internal.${SECRET_PUBLIC_DOMAIN}
   dnsNames:
     - nas.internal.${SECRET_PUBLIC_DOMAIN}
