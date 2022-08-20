@@ -19,6 +19,16 @@ spec:
     createNamespace: true
   values:
     kind: DaemonSet
+    service:
+      type: LoadBalancer
+      loadBalancerIP: "192.168.180.12"
+    extraVolumes:
+      - name: nas-tls-secret
+        secret:
+          secretName: nas-tls-secret
+    extraVolumeMounts:
+      - name: nas-tls-secret
+        mountPath: /usr/local/etc/ssl
     config: |
       global
         log stdout format raw local0
