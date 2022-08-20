@@ -23,8 +23,8 @@ spec:
       type: LoadBalancer
       loadBalancerIP: "192.168.180.12"
     mountedSecrets:
-      - volumeName: nas-server-tls
-        secretName: nas-tls-secret
+      - volumeName: wildcard-tls-secret
+        secretName: wildcard-tls-secret
         mountPath: /usr/local/etc/ssl
     config: |
       global
@@ -39,7 +39,7 @@ spec:
       frontend frontend_https
         mode http
         bind :80
-        bind :443 ssl crt /usr/local/etc/ssl no-sslv3
+        bind :443 ssl crt /usr/local/etc/ssl/tls-combined.pem no-sslv3
         option forwardfor
         acl nas hdr(host) -i nas.internal.${SECRET_PUBLIC_DOMAIN}
         use_backend nas if nas
