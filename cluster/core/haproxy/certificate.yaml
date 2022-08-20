@@ -2,15 +2,16 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: nas-tls
+  name: wildcard-tls
   namespace: haproxy
 spec:
-  secretName: nas-tls-secret
+  secretName: wildcard-tls-secret
   additionalOutputFormats:
     - type: CombinedPEM
-  commonName: nas.internal.${SECRET_PUBLIC_DOMAIN}
+  commonName: '*.internal.${SECRET_PUBLIC_DOMAIN}'
   dnsNames:
-    - nas.internal.${SECRET_PUBLIC_DOMAIN}
+    - internal.${SECRET_PUBLIC_DOMAIN}
+    - '*.internal.${SECRET_PUBLIC_DOMAIN}'
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
