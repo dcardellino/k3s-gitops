@@ -35,6 +35,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: jellyfin-tls-secret
     persistence:
       config:
         enabled: true
