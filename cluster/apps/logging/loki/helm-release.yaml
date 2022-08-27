@@ -23,6 +23,7 @@ spec:
       enabled: true
     ingress:
       enabled: true
+      ingressClassName: nginx
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-production
         external-dns/is-public: "true"
