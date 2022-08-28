@@ -17,11 +17,10 @@ spec:
   values:
     env:
       TZ: "Europe/Berlin"
-      ALLOWED_NETWORKS: "0.0.0.0/0"
-      PLEX_CLAIM:
+      ALLOWED_NETWORKS: "192.168.180.0/24,192.168.178.0/24,192.168.182.0/24"
       PLEX_PREFERENCE_1: "FriendlyName=plex-kubernetes"
       PLEX_PREFERENCE_2: "EnableIPv6=0"
-      PLEX_PREFERENCE_3: "logDebug=0"
+      PLEX_PREFERENCE_3: "logDebug=1"
       PLEX_PREFERENCE_4: "DisableTLSv1_0=1"
     ingress:
       main:
