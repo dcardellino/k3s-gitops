@@ -8,6 +8,7 @@ resources:
   - external-dns
   - kured
   - haproxy
+  - intel-gpu-plugin
   - metallb
   - nfs-subdir-external-provisioner
   - ingress-nginx
