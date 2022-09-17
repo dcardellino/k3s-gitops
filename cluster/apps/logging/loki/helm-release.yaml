@@ -27,13 +27,12 @@ spec:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-production
         external-dns/is-public: "true"
-        external-dns.alpha.kubernetes.io/target: "homelab-tunnel.${SECRET_PUBLIC_DOMAIN}"
-        external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+        external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
       hosts:
-        - host: loki.${SECRET_PUBLIC_DOMAIN}
+        - host: loki.${SECRET_PRIVATE_DOMAIN}
           paths:
             - /
       tls:
         - secretName: loki-tls-secret
           hosts:
-            - loki.${SECRET_PUBLIC_DOMAIN}
+            - loki.${SECRET_PRIVATE_DOMAIN}
