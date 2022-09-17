@@ -35,6 +35,7 @@ spec:
       - ingress
     txtPrefix: "k3s."
     txtOwnerId: "default"
+    logLevel: debug
     domainFilters:
       - ${SECRET_PUBLIC_DOMAIN}
       - ${SECRET_PRIVATE_DOMAIN}
