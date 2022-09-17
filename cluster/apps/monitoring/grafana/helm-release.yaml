@@ -32,20 +32,10 @@ spec:
       GF_PANELS_DISABLE_SANITIZE_HTML: true
       GF_LOG_FILTERS: rendering:debug
       GF_DATE_FORMATS_FULL_DATE: "MMM Do, YYYY hh:mm:ss a"
-      GF_AUTH_GENERIC_OAUTH_ENABLED: "true"
-      GF_AUTH_GENERIC_OAUTH_NAME: "Login Keycloak"
-      GF_AUTH_GENERIC_OAUTH_ALLOW_SIGN_UP: "true"
-      GF_AUTH_GENERIC_OAUTH_CLIENT_ID: "grafana"
-      GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET: "${SECRET_GRAFANA_OAUTH_CLIENT_SECRET}"
-      GF_AUTH_GENERIC_OAUTH_SCOPES: profile
-      GF_AUTH_GENERIC_OAUTH_AUTH_URL: "https://id.internal.${SECRET_PUBLIC_DOMAIN}/auth/realms/chaoscorporation/protocol/openid-connect/auth"
-      GF_AUTH_GENERIC_OAUTH_TOKEN_URL: "https://id.internal.${SECRET_PUBLIC_DOMAIN}/auth/realms/chaoscorporation/protocol/openid-connect/token"
-      GF_AUTH_GENERIC_OAUTH_API_URL: "https://id.internal.${SECRET_PUBLIC_DOMAIN}/auth/realms/chaoscorporation/protocol/openid-connect/userinfo"
-      GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_PATH: "contains(roles[*], 'admin') && 'Admin' || contains(roles[*], 'editor') && 'Editor' || 'Viewer'"
     adminPassword: ${SECRET_GRAFANA_ADMIN_PASSWORD}
     grafana.ini:
       server:
-        root_url: "https://grafana.internal.${SECRET_PUBLIC_DOMAIN}"
+        root_url: "https://grafana.${SECRET_PRIVATE_DOMAIN}"
       paths:
         data: /var/lib/grafana/data
         logs: /var/log/grafana
@@ -118,13 +108,14 @@ spec:
       ingressClassName: nginx
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-production
-        external-dns/is-public: "false"
+        external-dns/is-public: "true"
+        external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
       hosts:
-        - "grafana.internal.${SECRET_PUBLIC_DOMAIN}"
+        - "grafana.${SECRET_PRIVATE_DOMAIN}"
       tls:
         - secretName: grafana-server-tls
           hosts:
-            - "grafana.internal.${SECRET_PUBLIC_DOMAIN}"
+            - "grafana.${SECRET_PRIVATE_DOMAIN}"
     resources:
       requests:
         cpu: 75m
