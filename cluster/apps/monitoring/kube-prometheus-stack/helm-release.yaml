@@ -148,14 +148,11 @@ spec:
           group_wait: 30s
           group_interval: 5m
           repeat_interval: 6h
-          receiver: 'slack-notifications'
+          receiver: 'opsgenie'
           routes:
             - receiver: 'blackhole'
               matchers:
                 - alertname =~ "InfoInhibitor|Watchdog"
-            - receiever: 'opsgenie'
-              matchers:
-                - prometheus = "monitoring/prometheus-prometheus"
       ingress:
         enabled: true
         ingressClassName: nginx
