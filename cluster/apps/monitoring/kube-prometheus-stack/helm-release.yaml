@@ -76,7 +76,7 @@ spec:
           - job_name: "mailcow"
             static_configs:
               - targets:
-                  - mail.${SECRET_PUBLIC_DOMAIN}:9099
+                  - 172.18.0.2:9099
             params:
               host: ["mail.${SECRET_PUBLIC_DOMAIN}"]
               apiKey: ["${SECRET_MAILCOW_API_KEY}"]
@@ -87,7 +87,7 @@ spec:
                   - 192.168.180.15:9100
                   - 192.168.180.21:9100
                   - 192.168.178.10:9100
-                  - 162.55.217.103:9100
+                  - 172.18.0.2:9100
     prometheusOperator:
       prometheusConfigReloader:
         resources:
