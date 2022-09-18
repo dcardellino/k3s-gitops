@@ -21,6 +21,11 @@ spec:
   values:
     serviceMonitor:
       enabled: true
+    monitoring:
+      selfMonitoring:
+        enabled: false
+        grafanaAgent:
+          installOperator: false
     ingress:
       enabled: true
       ingressClassName: nginx
