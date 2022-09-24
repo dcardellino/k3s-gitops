@@ -10,7 +10,7 @@ resources:
   - grafana-charts.yaml
   - mojo2600-charts.yaml
   - dcardellino-charts.yaml
-  - weaveworks-charts.yaml
+  - kubereboot-charts.yaml
   - k8s-at-home-charts.yaml
   - metallb-charts.yaml
   - nfs-subdir-external-provisioner-charts.yaml
